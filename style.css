@@ -9,9 +9,9 @@ body {
     height: 100%;
     max-width: 300px;
     max-height: 746px;
-    background-color: #6C9A7F;
+    background-color: rgb(100, 160, 124);
     border-radius: 15px;
-    box-shadow: -2px -2px 5px darkslategray;
+    box-shadow: -3px -3px 5px darkslategray;
 }
 
 .row {
@@ -50,13 +50,12 @@ textarea {
     width: 70%;
     height: 50px;
     background-color: #2C4A47;
-    border-radius: 12px;
+    border-radius: 5px;
     border: none;
 }
 
 textarea:focus {
     outline:0;
-    background-color: beige;
 }
 
 .number {
