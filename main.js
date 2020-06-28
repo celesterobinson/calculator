@@ -1,3 +1,29 @@
+let displayWindow = document.getElementById('display');
+let equationSolved = false;
+
+function clearDisplay() {
+    displayWindow.value = '';
+}
+
+function updateEquation(button) {
+    // needs functionality to prevent stacking "/" and/or "*"
+    if (equationSolved) {
+        if (button.className === "number") {
+            clearDisplay();
+        }
+        equationSolved = false;
+    }
+    displayWindow.value += button.value;
+    displayWindow.style.backgroundColor = 'beige';
+}
+
+function solveAndDisplaySolution() {
+    let solution = eval(displayWindow.value);
+    equationSolved = true;
+    displayWindow.value = solution;
+}
+
+// There's for sure a better way to do this. Figure it out next time
 document.addEventListener('keydown', function(event) {
     if(event.keyCode === 49) {
         document.getElementById('one').click();
@@ -29,11 +55,10 @@ document.addEventListener('keydown', function(event) {
         document.getElementById('multiply').click();
     } else if (event.keyCode === 187) {
         document.getElementById('add').click();
+    } else if (event.keyCode === 13) {
+        solveAndDisplaySolution();
+    } else if (event.keyCode === 67) {
+        clearDisplay();
     }
 });
 
-function displayNum(button) {
-    var num = button.value;
-    document.getElementById('display').innerHTML += num;
-    document.getElementById('display').style.backgroundColor = 'beige';
-}
